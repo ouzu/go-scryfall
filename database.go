@@ -9,18 +9,20 @@ type Database struct {
 	cards []Card
 }
 
-func (d *Database) LoadJSON(path string) error {
+func LoadJSON(path string) (*Database, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	err = json.Unmarshal(data, &(d.cards))
+	var cards []Card
+
+	err = json.Unmarshal(data, &cards)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
-	return nil
+	return &Database{cards}, nil
 }
 
 func (d *Database) CardByName(name string) *Card {

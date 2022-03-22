@@ -8,8 +8,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+const file = "oracle-cards-20220322090414.json"
+
 func TestCardImport(t *testing.T) {
-	data, err := os.ReadFile("oracle-cards-20220321090421.json")
+	data, err := os.ReadFile(file)
 	assert.Nil(t, err)
 
 	var cards []Card
@@ -19,17 +21,13 @@ func TestCardImport(t *testing.T) {
 }
 
 func TestDatabaseImport(t *testing.T) {
-	d := Database{}
-
-	err := d.LoadJSON("oracle-cards-20220321090421.json")
+	_, err := LoadJSON(file)
 
 	assert.Nil(t, err)
 }
 
 func BenchmarkSearch(b *testing.B) {
-	d := Database{}
-
-	err := d.LoadJSON("oracle-cards-20220321090421.json")
+	d, err := LoadJSON(file)
 
 	assert.Nil(b, err)
 
