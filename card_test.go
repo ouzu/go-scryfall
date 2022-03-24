@@ -26,6 +26,16 @@ func TestDatabaseImport(t *testing.T) {
 	assert.Nil(t, err)
 }
 
+func TestDFCSearch(t *testing.T) {
+	d, err := LoadJSON(file)
+	assert.Nil(t, err)
+
+	c := d.CardByName("Brutal Cathar")
+	assert.NotNil(t, c)
+
+	assert.Equal(t, "Brutal Cathar // Moonrage Brute", c.Name)
+}
+
 func BenchmarkSearch(b *testing.B) {
 	d, err := LoadJSON(file)
 
