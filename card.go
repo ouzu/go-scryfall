@@ -42,27 +42,27 @@ type ImageURIs struct {
 // https://scryfall.com/docs/api/cards#card-face-objects
 
 type CardFace struct {
-	Artist          string       `json:"artist"`
-	CMC             float64      `json:"cmc"`
-	ColorIndicator  Color.Colors `json:"color_indicator"`
-	Colors          Color.Colors `json:"colors"`
-	FlavorText      string       `json:"flavor_text"`
-	IllustrationID  uuid.UUID    `json:"illustration_id"`
-	ImageURIs       ImageURIs    `json:"image_uris"`
-	Layout          string       `json:"layout"`
-	Loyalty         string       `json:"loyalty"`
-	ManaCost        string       `json:"mana_cost"`
-	Name            string       `json:"name"`
-	Object          string       `json:"object"`
-	OracleID        uuid.UUID    `json:"oracle_id"`
-	OracleText      string       `json:"oracle_text"`
-	Power           string       `json:"power"`
-	PrintedName     string       `json:"printed_name"`
-	PrintedText     string       `json:"printed_text"`
-	PrintedTypeLine string       `json:"printed_type_line"`
-	Toughness       string       `json:"toughness"`
-	TypeLine        string       `json:"type_line"`
-	Watermark       string       `json:"watermark"`
+	Artist          string        `json:"artist"`
+	CMC             float64       `json:"cmc"`
+	ColorIndicator  Color.Colors  `json:"color_indicator"`
+	Colors          Color.Colors  `json:"colors"`
+	FlavorText      string        `json:"flavor_text"`
+	IllustrationID  uuid.UUID     `json:"illustration_id"`
+	ImageURIs       ImageURIs     `json:"image_uris"`
+	Layout          Layout.Layout `json:"layout"`
+	Loyalty         string        `json:"loyalty"`
+	ManaCost        string        `json:"mana_cost"`
+	Name            string        `json:"name"`
+	Object          string        `json:"object"`
+	OracleID        uuid.UUID     `json:"oracle_id"`
+	OracleText      string        `json:"oracle_text"`
+	Power           string        `json:"power"`
+	PrintedName     string        `json:"printed_name"`
+	PrintedText     string        `json:"printed_text"`
+	PrintedTypeLine string        `json:"printed_type_line"`
+	Toughness       string        `json:"toughness"`
+	TypeLine        string        `json:"type_line"`
+	Watermark       string        `json:"watermark"`
 }
 
 // https://scryfall.com/docs/api/cards#related-card-objects
