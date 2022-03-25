@@ -31,6 +31,8 @@ func (d *Database) CardByName(name string) *Card {
 		if card.Name == name {
 			return &card
 		}
+	}
+	for _, card := range d.cards {
 		if strings.HasPrefix(card.Name, name+" // ") {
 			return &card
 		}

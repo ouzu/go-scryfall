@@ -36,6 +36,16 @@ func TestDFCSearch(t *testing.T) {
 	assert.Equal(t, "Brutal Cathar // Moonrage Brute", c.Name)
 }
 
+func TestSearch(t *testing.T) {
+	d, err := LoadJSON(file)
+	assert.Nil(t, err)
+
+	c := d.CardByName("Surgehacker Mech")
+	assert.NotNil(t, c)
+
+	assert.Equal(t, "Surgehacker Mech", c.Name)
+}
+
 func BenchmarkSearch(b *testing.B) {
 	d, err := LoadJSON(file)
 
