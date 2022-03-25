@@ -3,6 +3,7 @@ package scryfall
 import (
 	"encoding/json"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/lithammer/fuzzysearch/fuzzy"
@@ -10,6 +11,7 @@ import (
 
 type Database struct {
 	cards []Card
+	names []string
 }
 
 func LoadJSON(path string) (*Database, error) {
@@ -25,7 +27,13 @@ func LoadJSON(path string) (*Database, error) {
 		return nil, err
 	}
 
-	return &Database{cards}, nil
+	names := make([]string, len(cards))
+
+	for i, card := range cards {
+		names[i] = card.Name
+	}
+
+	return &Database{cards, names}, nil
 }
 
 func (d *Database) CardByName(name string) *Card {
@@ -43,11 +51,15 @@ func (d *Database) CardByName(name string) *Card {
 }
 
 func (d *Database) CardByFuzzyName(name string) []Card {
-	var cards []Card
-	for _, card := range d.cards {
-		if fuzzy.Match(name, card.Name) {
-			cards = append(cards, card)
-		}
+	results := fuzzy.RankFind(name, d.names)
+
+	sort.Sort(results)
+
+	cards := make([]Card, len(results))
+
+	for i, result := range results {
+		cards[i] = d.cards[result.OriginalIndex]
 	}
+
 	return cards
 }
