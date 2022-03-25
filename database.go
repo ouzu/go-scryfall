@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"os"
 	"strings"
+
+	"github.com/lithammer/fuzzysearch/fuzzy"
 )
 
 type Database struct {
@@ -38,4 +40,14 @@ func (d *Database) CardByName(name string) *Card {
 		}
 	}
 	return nil
+}
+
+func (d *Database) CardByFuzzyName(name string) []Card {
+	var cards []Card
+	for _, card := range d.cards {
+		if fuzzy.Match(name, card.Name) {
+			cards = append(cards, card)
+		}
+	}
+	return cards
 }
