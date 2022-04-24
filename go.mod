@@ -1,4 +1,4 @@
-module ouzu.tech/go-scryfall.git
+module github.com/ouzu/go-scryfall
 
 go 1.18
 

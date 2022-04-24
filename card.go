@@ -4,16 +4,16 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"ouzu.tech/go-scryfall.git/BorderColor"
-	"ouzu.tech/go-scryfall.git/Color"
-	"ouzu.tech/go-scryfall.git/Component"
-	"ouzu.tech/go-scryfall.git/Finish"
-	"ouzu.tech/go-scryfall.git/Game"
-	"ouzu.tech/go-scryfall.git/ImageStatus"
-	"ouzu.tech/go-scryfall.git/Layout"
-	"ouzu.tech/go-scryfall.git/Legality"
-	"ouzu.tech/go-scryfall.git/Rarity"
-	"ouzu.tech/go-scryfall.git/SecurityStamp"
+	"github.com/ouzu/go-scryfall/BorderColor"
+	"github.com/ouzu/go-scryfall/Color"
+	"github.com/ouzu/go-scryfall/Component"
+	"github.com/ouzu/go-scryfall/Finish"
+	"github.com/ouzu/go-scryfall/Game"
+	"github.com/ouzu/go-scryfall/ImageStatus"
+	"github.com/ouzu/go-scryfall/Layout"
+	"github.com/ouzu/go-scryfall/Legality"
+	"github.com/ouzu/go-scryfall/Rarity"
+	"github.com/ouzu/go-scryfall/SecurityStamp"
 )
 
 type Date time.Time
